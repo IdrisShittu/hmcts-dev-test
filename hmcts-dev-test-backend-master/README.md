@@ -17,7 +17,7 @@ This is a Spring Boot backend for a task management application that provides RE
 1. **Clone the repository**
 ```bash
 git clone https://github.com/IdrisShittu/hmcts-dev-test-backend.git
-cd hmcts-dev-test-backend
+cd hmcts-dev-test-backend-master
 ```
 2. **Build the application**
 ```bash
