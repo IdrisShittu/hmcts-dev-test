@@ -1,0 +1,61 @@
+server:
+  port: 4000
+  shutdown: "graceful"
+
+management:
+  endpoint:
+    health:
+      show-details: "always"
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: health, info # Expose both health and info endpoints
+
+springdoc:
+  packagesToScan: uk.gov.hmcts.reform.dev.controllers
+  writer-with-order-by-keys: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+  info:
+    title: Task Mangement API
+    description: API documentation for the taskmanagement-backend application
+    version: 1.0.0
+    contact:
+      name: Support Team
+      email: support@hmcts.gov.uk
+      url: hmcts.gov.uk
+    license:
+      name: Apache 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+spring:
+  config:
+    import: "optional:configtree:/mnt/secrets/test/"
+  application:
+    name: Dev Test
+
+  logging:
+    level:
+      root: INFO
+      uk.gov.hmcts.reform.dev: DEBUG
+      uk.gov.hmcts.reform.dev.controllers: DEBUG
+      uk.gov.hmcts.reform.dev.services: DEBUG
+    pattern:
+      console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
