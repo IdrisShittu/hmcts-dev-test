@@ -35,6 +35,7 @@ public class TaskService {
         task.setCreatedDate(LocalDateTime.now());
 
         try {
+            logger.info("[TaskService][CREATE TASK] in try catch: {}",0);
             Task savedTask = taskRepository.save(task);
             logger.info("[TaskService][CREATE TASK] Task created successfully with ID: {}", savedTask.getId());
             return mapToDTO(savedTask);
@@ -166,7 +167,7 @@ public class TaskService {
     private Task mapToEntity(TaskDTO taskDTO) {
         logger.debug("[TaskService][MAP TO ENTITY] Mapping TaskDTO to Task entity: {}", taskDTO);
         Task task = new Task();
-        task.setId(taskDTO.getId());
+       // task.setId(taskDTO.getId());
         task.setTitle(taskDTO.getTitle());
         task.setDescription(taskDTO.getDescription());
         task.setStatus(taskDTO.getStatus());

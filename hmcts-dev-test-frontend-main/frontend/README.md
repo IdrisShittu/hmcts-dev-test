@@ -26,7 +26,7 @@ A **React + TypeScript** based frontend application for managing tasks — allow
 
 ```bash
 git clone https://github.com/IdrisShittu/hmcts-dev-test-frontend.git
-cd hmcts-dev-test-frontend/frontend
+cd hmcts-dev-test-frontend-main/frontend
 ```
 
 ### 2. Install dependencies
